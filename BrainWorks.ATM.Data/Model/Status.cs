@@ -11,5 +11,9 @@ namespace BrainWorks.ATM.Data
 		public List<User> Users { get; set; }
 
 		public List<Transaction> Transactions { get; set; }
+
+		public List<Card> Cards { get; set; }
+
+		public List<Account> Accounts { get; set; }
 	}
 }

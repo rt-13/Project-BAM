@@ -1,4 +1,6 @@
-﻿namespace BrainWorks.ATM.Data
+﻿using System.Collections.Generic;
+
+namespace BrainWorks.ATM.Data
 {
 	public class Account
 	{
@@ -13,5 +15,6 @@
 		public User User { get; set; }
 		public AccountType AccountType { get; set; }
 		public Status Status { get; set; }
+		public List<Card> Cards { get; set; }
 	}
 }

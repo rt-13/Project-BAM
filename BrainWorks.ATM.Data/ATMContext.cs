@@ -41,6 +41,9 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<Account>().Property(b => b.CustomerNumber).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<Account>().Property(b => b.AccountNumber).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<Account>().Property(b => b.AvailableBalance).HasColumnType("decimal(10,2)").IsRequired();
+			modelBuilder.Entity<Account>().HasOne(b => b.User).WithMany(b => b.Accounts).HasForeignKey(b => b.UserId).OnDelete(DeleteBehavior.NoAction);
+			modelBuilder.Entity<Account>().HasOne(b => b.Status).WithMany(b => b.Accounts).HasForeignKey(b => b.StatusId).OnDelete(DeleteBehavior.NoAction);
+			modelBuilder.Entity<Account>().HasOne(b => b.AccountType).WithMany(b => b.Accounts).HasForeignKey(b => b.AccountTypeId).OnDelete(DeleteBehavior.NoAction);
 
 			modelBuilder.Entity<DepositMode>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
 
@@ -54,6 +57,14 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<SiteContent>().Property(b => b.Reference).HasColumnType("varchar(100)").IsRequired();
 			modelBuilder.Entity<SiteContent>().Property(b => b.Key).HasColumnType("varchar(50)").IsRequired();
 			modelBuilder.Entity<SiteContent>().Property(b => b.Value).HasColumnType("varchar(500)").IsRequired();
+
+			modelBuilder.Entity<Card>().Property(b => b.CardNumber).HasColumnType("varchar(20)").IsRequired();
+			modelBuilder.Entity<Card>().Property(b => b.CardName).HasColumnType("varchar(100)").IsRequired();
+
+			modelBuilder.Entity<Card>().Property(b => b.ExpiryMonth).IsRequired();
+			modelBuilder.Entity<Card>().Property(b => b.ExpiryYear).IsRequired();
+			modelBuilder.Entity<Card>().Property(b => b.CVV).IsRequired();
+			modelBuilder.Entity<Card>().Property(b => b.PIN).IsRequired();
 		}
 	}
 }

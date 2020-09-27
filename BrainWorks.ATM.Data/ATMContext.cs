@@ -6,6 +6,8 @@ namespace BrainWorks.ATM.Data
 	{
 		public DbSet<User> Users { get; set; }
 		public DbSet<AccountType> AccountTypes { get; set; }
+		public DbSet<Status> Status { get; set; }
+		public DbSet<Account> Accounts { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -30,6 +32,10 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<AccountType>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
 
 			modelBuilder.Entity<Status>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
+
+			modelBuilder.Entity<Account>().Property(b => b.CustomerNumber).HasColumnType("varchar(20)").IsRequired();
+			modelBuilder.Entity<Account>().Property(b => b.AccountNumber).HasColumnType("varchar(20)").IsRequired();
+			modelBuilder.Entity<Account>().Property(b => b.AvailableBalance).HasColumnType("decimal(10,2)").IsRequired();
 		}
 	}
 }

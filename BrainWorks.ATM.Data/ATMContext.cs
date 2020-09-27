@@ -5,6 +5,7 @@ namespace BrainWorks.ATM.Data
 	public class ATMContext : DbContext
 	{
 		public DbSet<User> Users { get; set; }
+		public DbSet<AccountType> AccountTypes { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -25,7 +26,8 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<User>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
 			modelBuilder.Entity<User>().Property(b => b.Mobile).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<User>().Property(b => b.Email).HasColumnType("varchar(200)").IsRequired();
-			modelBuilder.Entity<User>().Property(b => b.Status).HasColumnType("varchar(20)");
+
+			modelBuilder.Entity<AccountType>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
 		}
 	}
 }

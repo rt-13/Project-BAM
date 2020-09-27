@@ -3,14 +3,16 @@ using BrainWorks.ATM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrainWorks.ATM.Data.Migrations
 {
     [DbContext(typeof(ATMContext))]
-    partial class ATMContextModelSnapshot : ModelSnapshot
+    [Migration("20200927061806_Added Status Table with FK to Users")]
+    partial class AddedStatusTablewithFKtoUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,14 +3,16 @@ using BrainWorks.ATM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrainWorks.ATM.Data.Migrations
 {
     [DbContext(typeof(ATMContext))]
-    partial class ATMContextModelSnapshot : ModelSnapshot
+    [Migration("20200927061147_Added Account Type table")]
+    partial class AddedAccountTypetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,22 +34,6 @@ namespace BrainWorks.ATM.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AccountTypes");
-                });
-
-            modelBuilder.Entity("BrainWorks.ATM.Data.Status", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Status");
                 });
 
             modelBuilder.Entity("BrainWorks.ATM.Data.User", b =>
@@ -100,18 +86,7 @@ namespace BrainWorks.ATM.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StatusId");
-
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("BrainWorks.ATM.Data.User", b =>
-                {
-                    b.HasOne("BrainWorks.ATM.Data.Status", "Status")
-                        .WithMany("Users")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

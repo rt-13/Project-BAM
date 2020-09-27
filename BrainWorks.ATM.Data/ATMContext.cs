@@ -11,6 +11,8 @@ namespace BrainWorks.ATM.Data
 		public DbSet<TransactionType> TransactionTypes { get; set; }
 		public DbSet<DepositMode> DepositModes { get; set; }
 		public DbSet<Transaction> Transactions { get; set; }
+		public DbSet<SiteContent> SiteContents { get; set; }
+
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -48,6 +50,10 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<Transaction>().Property(b => b.TransactionNumber).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<Transaction>().Property(b => b.TransactionDate).HasDefaultValueSql("getdate()");
 			modelBuilder.Entity<Transaction>().Property(b => b.Amount).HasColumnType("decimal(10,2)").IsRequired();
+
+			modelBuilder.Entity<SiteContent>().Property(b => b.Reference).HasColumnType("varchar(100)").IsRequired();
+			modelBuilder.Entity<SiteContent>().Property(b => b.Key).HasColumnType("varchar(50)").IsRequired();
+			modelBuilder.Entity<SiteContent>().Property(b => b.Value).HasColumnType("varchar(500)").IsRequired();
 		}
 	}
 }

@@ -9,5 +9,7 @@ namespace BrainWorks.ATM.Data
 		public string Name { get; set; }
 
 		public List<User> Users { get; set; }
+
+		public List<Transaction> Transactions { get; set; }
 	}
 }

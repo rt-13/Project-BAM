@@ -10,6 +10,7 @@ namespace BrainWorks.ATM.Data
 		public DbSet<Account> Accounts { get; set; }
 		public DbSet<TransactionType> TransactionTypes { get; set; }
 		public DbSet<DepositMode> DepositModes { get; set; }
+		public DbSet<Transaction> Transactions { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -43,6 +44,10 @@ namespace BrainWorks.ATM.Data
 
 			modelBuilder.Entity<TransactionType>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
 			modelBuilder.Entity<TransactionType>().Property(b => b.ShortCode).HasColumnType("varchar(10)").IsRequired();
+
+			modelBuilder.Entity<Transaction>().Property(b => b.TransactionNumber).HasColumnType("varchar(20)").IsRequired();
+			modelBuilder.Entity<Transaction>().Property(b => b.TransactionDate).HasDefaultValueSql("getdate()");
+			modelBuilder.Entity<Transaction>().Property(b => b.Amount).HasColumnType("decimal(10,2)").IsRequired();
 		}
 	}
 }

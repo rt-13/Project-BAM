@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainWorks.ATM.Data", "BrainWorks.ATM.Data\BrainWorks.ATM.Data.csproj", "{ED6E8A6F-C71B-466D-BA8D-F1AC428C918E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainWorks.ATM.Data", "BrainWorks.ATM.Data\BrainWorks.ATM.Data.csproj", "{ED6E8A6F-C71B-466D-BA8D-F1AC428C918E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{D9F3B895-B747-4FE6-9193-808A004FE14A}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainWorks.ATM.Persistence", "BrainWorks.ATM.Persistance\BrainWorks.ATM.Persistence.csproj", "{3D73E830-7299-4765-BEBA-87AE96CB8E45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainWorks.ATM.Web", "BrainWorks.ATM.Web\BrainWorks.ATM.Web.csproj", "{C6E749CE-AFE2-4347-B359-869076EADC77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainWorks.ATM.Service", "BrainWorks.ATM.Service\BrainWorks.ATM.Service.csproj", "{116299ED-0F45-4F27-9229-8FF087FEA663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{ED6E8A6F-C71B-466D-BA8D-F1AC428C918E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED6E8A6F-C71B-466D-BA8D-F1AC428C918E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED6E8A6F-C71B-466D-BA8D-F1AC428C918E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D73E830-7299-4765-BEBA-87AE96CB8E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D73E830-7299-4765-BEBA-87AE96CB8E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D73E830-7299-4765-BEBA-87AE96CB8E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D73E830-7299-4765-BEBA-87AE96CB8E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E749CE-AFE2-4347-B359-869076EADC77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E749CE-AFE2-4347-B359-869076EADC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E749CE-AFE2-4347-B359-869076EADC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E749CE-AFE2-4347-B359-869076EADC77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116299ED-0F45-4F27-9229-8FF087FEA663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116299ED-0F45-4F27-9229-8FF087FEA663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116299ED-0F45-4F27-9229-8FF087FEA663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116299ED-0F45-4F27-9229-8FF087FEA663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BrainWorks.ATM.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace BrainWorks.ATM.Data
+namespace BrainWorks.ATM.Persistence
 {
 	public class ATMContext : DbContext
 	{
@@ -13,14 +14,12 @@ namespace BrainWorks.ATM.Data
 		public DbSet<Transaction> Transactions { get; set; }
 		public DbSet<SiteContent> SiteContents { get; set; }
 
-
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			string connectionString = @"Data Source=RT-ADEPTUS\SQLEXPRESS15;Initial Catalog=BAM;Integrated Security=True";
 			optionsBuilder.UseSqlServer(connectionString);
 		}
 
-		//Data Modeling
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<User>().Property(b => b.FirstName).HasColumnType("varchar(200)").IsRequired();
@@ -41,6 +40,7 @@ namespace BrainWorks.ATM.Data
 			modelBuilder.Entity<Account>().Property(b => b.CustomerNumber).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<Account>().Property(b => b.AccountNumber).HasColumnType("varchar(20)").IsRequired();
 			modelBuilder.Entity<Account>().Property(b => b.AvailableBalance).HasColumnType("decimal(10,2)").IsRequired();
+
 			modelBuilder.Entity<Account>().HasOne(b => b.User).WithMany(b => b.Accounts).HasForeignKey(b => b.UserId).OnDelete(DeleteBehavior.NoAction);
 			modelBuilder.Entity<Account>().HasOne(b => b.Status).WithMany(b => b.Accounts).HasForeignKey(b => b.StatusId).OnDelete(DeleteBehavior.NoAction);
 			modelBuilder.Entity<Account>().HasOne(b => b.AccountType).WithMany(b => b.Accounts).HasForeignKey(b => b.AccountTypeId).OnDelete(DeleteBehavior.NoAction);

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrainWorks.ATM.Data\BrainWorks.ATM.Data.csproj" />
+    <ProjectReference Include="..\BrainWorks.ATM.Persistance\BrainWorks.ATM.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

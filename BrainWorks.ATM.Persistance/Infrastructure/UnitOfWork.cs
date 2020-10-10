@@ -8,6 +8,7 @@ namespace BrainWorks.ATM.Persistence
 		public Repository<User> UserRepository { get; }
 		public Repository<Account> AccountRepository { get; }
 		public Repository<SiteContent> SiteContentRepository { get; }
+		public Repository<Card> CardRepository { get; }
 
 		public UnitOfWork(ATMContext context)
 		{
@@ -15,6 +16,7 @@ namespace BrainWorks.ATM.Persistence
 			this.AccountRepository = new Repository<Account>(this._context);
 			this.UserRepository = new Repository<User>(this._context);
 			this.SiteContentRepository = new Repository<SiteContent>(this._context);
+			this.CardRepository = new Repository<Card>(this._context);
 		}
 
 		public int Save()

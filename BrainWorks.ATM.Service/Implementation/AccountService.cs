@@ -1,6 +1,5 @@
 ﻿using BrainWorks.ATM.Persistence;
 using System;
-using System.Linq;
 
 namespace BrainWorks.ATM.Service
 {
@@ -13,17 +12,12 @@ namespace BrainWorks.ATM.Service
 			this._unitOfWork = unitOfWork;
 		}
 
-		public bool IsPinValid(string accountNumber, int pin)
+		public bool IsPinValid(string cardNumber, int pin)
 		{
-			var account = this._unitOfWork.AccountRepository.FirstOrDefault(x => string.Compare(x.AccountNumber, accountNumber, StringComparison.OrdinalIgnoreCase) == 0);
-
-			if (account != null && account.Cards.Any())
+			var card = this._unitOfWork.CardRepository.FirstOrDefault(x => string.Compare(x.CardNumber, cardNumber, StringComparison.OrdinalIgnoreCase) == 0 && x.PIN == pin);
+			if (card != null)
 			{
-				var card = account.Cards[0];
-				if (card.PIN == pin)
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return false;

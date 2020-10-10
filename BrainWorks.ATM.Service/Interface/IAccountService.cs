@@ -2,6 +2,6 @@
 {
 	public interface IAccountService
 	{
-		bool IsPinValid(string accountNumber, int pin);
+		bool IsPinValid(string cardNumber, int pin);
 	}
 }

@@ -8,6 +8,7 @@ namespace BrainWorks.ATM.Persistence
 		Repository<User> UserRepository { get; }
 		Repository<Account> AccountRepository { get; }
 		Repository<SiteContent> SiteContentRepository { get; }
+		Repository<Card> CardRepository { get; }
 
 		int Save();
 	}

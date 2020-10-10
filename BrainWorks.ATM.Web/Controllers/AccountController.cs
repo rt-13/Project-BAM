@@ -15,10 +15,10 @@ namespace BrainWorks.ATM.Web.Controllers
 			this._accountService = accountService;
 		}
 
-		[HttpGet("/ispinvalid/{accountNumber}/{pin}")]
-		public IActionResult ValidatedUserPin(string accountNumber, string pin)
+		[HttpGet("/ispinvalid/{cardnumber}/{pin}")]
+		public IActionResult ValidatedUserPin(string cardNumber, string pin)
 		{
-			return Ok(this._accountService.IsPinValid(accountNumber, Convert.ToInt32(pin)));
+			return Ok(this._accountService.IsPinValid(cardNumber, Convert.ToInt32(pin)));
 		}
 	}
 }

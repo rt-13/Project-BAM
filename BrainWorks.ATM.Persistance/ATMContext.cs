@@ -16,7 +16,7 @@ namespace BrainWorks.ATM.Persistence
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			string connectionString = @"Data Source=RT-ADEPTUS\SQLEXPRESS15;Initial Catalog=BAM;Integrated Security=True";
+			string connectionString = @"Data Source=RT-ADEPTUS\SQLEXPRESS15;Initial Catalog=BAM;Integrated Security=True;MultipleActiveResultSets=True";
 			optionsBuilder.UseSqlServer(connectionString);
 		}
 

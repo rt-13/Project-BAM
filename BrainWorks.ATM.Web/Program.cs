@@ -7,14 +7,16 @@ namespace BrainWorks.ATM.Web
 	{
 		public static void Main(string[] args)
 		{
-			CreateHostBuilder(args).Build().Run();
+			var hostBuilder = CreateHostBuilder(args);
+			var host = hostBuilder.Build();
+			host.Run();
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args)
 		{
-			return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
+			return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(builder =>
 			{
-				webBuilder.UseStartup<Startup>();
+				builder.UseStartup<Startup>();
 			});
 		}
 	}
